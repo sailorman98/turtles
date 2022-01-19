@@ -1,0 +1,224 @@
+local function hasValue(tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+ 
+    return false
+end
+
+function moveForward()
+    while not turtle.forward() do
+        print("Something blocking ahead!")
+        turtle.dig()
+    end
+end
+
+function moveDown()
+    while not turtle.down() do
+        print("Something blocking below!")
+        turtle.digDown()
+    end
+end
+
+function moveUp()
+    while not turtle.up() do
+        print("Something blocking above!")
+        turtle.digUp()
+    end
+end
+ 
+function chopTree()
+    print("chopping tree")
+    
+    heightClimbed = 0
+    while turtle.digUp() do  
+        if heightClimbed >= height then break end
+        if turtle.up() then heightClimbed = heightClimbed + 1 end
+    end 
+    
+    while heightClimbed > 0 do
+        for i = 0, 3, 1
+        do
+            turtle.turnLeft()
+            turtle.dig()
+        end
+        if turtle.down() then
+            heightClimbed = heightClimbed - 1
+        else
+            turtle.digDown()
+        end
+    end
+end
+ 
+function turn(turnLeft)
+    if turnLeft then
+        print("turning left")
+        turtle.turnLeft()
+    else
+        print("turning right")
+        turtle.turnRight()
+    end
+end
+ 
+function dropItems()
+    print("Dropping items")
+    for slot = 1,16,1
+    do
+        local data = turtle.getItemDetail(slot)
+        if data ~= nil and data.name ~= "minecraft:sapling" then
+            turtle.select(slot)
+            turtle.dropDown()
+        end
+    end
+end
+
+function placeDirt()
+    for slot = 1,16,1 do
+        local data = turtle.getItemDetail(slot)
+        if data ~= nil and data.name == "minecraft:dirt" then
+            turtle.select(slot)
+            moveDown()
+            turtle.digDown() 
+            turtle.placeDown()
+            moveUp()
+            return
+        end
+    end
+end
+            
+            
+function plantSapling()
+    print("Planting sapling")
+    for slot = 1,16,1 do
+        local data = turtle.getItemDetail(slot)
+        if data ~= nil and data.name == "minecraft:sapling" then
+            turtle.select(slot)
+            if not turtle.placeDown() then 
+                placeDirt() 
+                turtle.select(slot)
+                turtle.placeDown()
+            end
+            return
+        end 
+    end 
+end
+ 
+function terraform()
+    downBlockExists, downData = turtle.inspectDown()
+    forwardBlockExists, forwardData = turtle.inspect()
+    upBlockExists, upData = turtle.inspectUp()
+    if downBlockExists then
+        if downData.name == "minecraft:chest" then
+            print("Found a chest!")
+            dropItems()
+        elseif downData.name ~= "minecraft:sapling" then
+            print("Something below, imma break it")
+            turtle.digDown()
+            plantSapling()
+        end
+    else
+        plantSapling()
+    end
+
+    if upBlockExists then 
+        if upData.name == "minecraft:log" then
+            print("FOUND TREE. MUST CHOP.")
+            chopTree()
+        else
+            turtle.digUp()
+        end
+    end
+end
+
+function spin()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.turnRight()
+end
+ 
+minFuelRequired = 0
+
+function checkFuel()
+    turtle.select(1)
+    turtle.refuel()
+    minFuelRequired = (length * width) + width
+    while turtle.getFuelLevel() < minFuelRequired do
+        spin()
+        print("Need fuel in slot 1!")
+        turtle.refuel()
+        fuelRemaining = minFuelRequired - turtle.getFuelLevel()
+        print(fuelRemaining .. "fuel needed!")
+        sleep(0.5)
+    end
+end
+
+function requestChopDimensions()
+    print("Will consider this point the bottom left of chop area")
+    print("Enter length of chopping area")
+    length = tonumber(read())
+    print("Enter width of chopping area (even number)")
+    width = tonumber(read())
+    print("Enter max height of trees to chop")
+    height = tonumber(read())
+    return length, width, height
+end
+
+function makeTheRounds()
+    turnLeft = false
+    for i = 1,width,1 do
+        for _ = 1,length-1,1 do
+            if turtle.getFuelLevel() > minFuelRequired then terraform() end
+            moveForward()
+        end
+        if i < width then
+            turn(turnLeft)
+            moveForward()
+            turn(turnLeft)
+            turnLeft = not turnLeft
+        end
+    end
+    
+    print("Headed home")
+
+    turtle.turnRight()
+
+    for _ = 1,width - 1,1 do
+        moveForward()
+    end
+
+    turtle.turnRight()
+    print("I'm home!")
+end
+
+length, width, height = requestChopDimensions()
+
+function main()
+    checkFuel()
+    while length == nil or width == nil or height == nil or width % 2 == 1 do
+        print("Invalid number detected")
+        length, width, height = requestChopDimensions()
+    end
+    
+    while turtle.down() do print("Nothing below, moving down") end
+    
+    blockBelow, downData = turtle.inspectDown()
+    while downData.name ~= "minecraft:chest" do
+        print("No home chest")
+        spin()
+        newBlockBelow, newData = turtle.inspectDown()
+        if newBlockBelow then downData = newData end
+        sleep(0.5)
+    end
+    makeTheRounds()
+    main()
+end
+
+main()
+        
+                                    
+                                    
+                            
+                            
