@@ -52,7 +52,7 @@ function turnTowards(dir)
 end
 
 function moveTo(x_new, y_new, z_new)
-    
+
     if 0 < x_new then
         turnTowards(1)
         for i = 0, x_new, 1 do
@@ -71,6 +71,7 @@ function moveTo(x_new, y_new, z_new)
         end
     elseif 0 > y_new then
         for i = 0, 0 - y_new, 1 do
+            print("moving down")
             moveDown()
         end
     end
