@@ -88,7 +88,7 @@ function moveTo(x_new, y_new, z_new)
     end
 end
 
-moveTo(x_2, y_2, z_2)
+moveTo(tonumber(x_2), tonumber(y_2), tonumber(z_2))
 print("huh")
 
 
