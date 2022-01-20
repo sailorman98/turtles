@@ -22,6 +22,10 @@ function moveUp()
 end
 
 function move()
+    straight = tonumber(straight)
+    up = tonumber(up)
+    right = tonumber(right)
+    
     for i = 1, straight, 1 do
         moveForward()
     end
