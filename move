@@ -27,7 +27,11 @@ function move()
     right = tonumber(right)
 
     for i = 1, straight, 1 do
-        print("Lets go")
+        moveForward()
+    end
+
+    turtle.turnRight()
+    for i = 1, right, 1 do
         moveForward()
     end
 
@@ -40,14 +44,8 @@ function move()
             moveDown()
         end
     end
-
-    turtle.turnRight()
-    for i = 1, right, 1 do
-        moveForward()
-    end
 end
 
-print("starting")
 move()
 
 
