@@ -52,13 +52,13 @@ function turnTowards(dir)
 end
 
 function moveTo(x_new, y_new, z_new)
+    
     if 0 < x_new then
         turnTowards(1)
         for i = 0, x_new, 1 do
             moveForward()
         end
     elseif 0 > x_new then
-        print("vibe check")
         turnTowards(3)
         for i = 0, 0 - x_new, 1 do
             moveForward()
