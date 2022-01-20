@@ -3,6 +3,7 @@ while true do
     turtle.dig()
     turtle.digUp()
     turtle.digDown()
-    turtle.forward
+    turtle.forward()
     print(x)
     x = x + 1
+end
