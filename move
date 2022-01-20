@@ -1,4 +1,4 @@
-local x, y, z = ...
+local x_2, y_2, z_2 = ...
 local direction = 0
 
 function moveForward()
@@ -52,43 +52,42 @@ function turnTowards(dir)
 end
 
 function moveTo(x_new, y_new, z_new)
-    if x < x_new then
+    if 0 < x_new then
         turnTowards(1)
-        for i = 0, x_new - x, 1 do
+        for i = 0, x_new, 1 do
             moveForward()
         end
-    elseif x > x_new then
+    elseif 0 > x_new then
         turnTowards(3)
-        for i = 0, x - x_new, 1 do
+        for i = 0, 0 - x_new, 1 do
             moveForward()
         end
     end
    
-    if y < y_new then
-        for i = 0, y_new - y, 1 do
+    if 0 < y_new then
+        for i = 0, y_new, 1 do
             moveUp()
         end
-    elseif y > y_new then
-        for i = 0, y - y_new, 1 do
+    elseif 0 > y_new then
+        for i = 0, 0 - y_new, 1 do
             moveDown()
         end
     end
 
-    if z < z_new then
+    if 0 < z_new then
         turnTowards(2)
-        for i = 0, z_new - z, 1 do
+        for i = 0, z_new, 1 do
             moveForward()
         end
-    elseif z > z_new then
+    elseif 0 > z_new then
         turnTowards(0)
-        for i = 0, z - z_new, 1 do
+        for i = 0, 0 - z_new, 1 do
             moveForward()
         end
     end
 end
 
-
-moveTo(x, y, z)
+moveTo(x_2, y_2, z_2)
 
 
 
