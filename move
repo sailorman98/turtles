@@ -1,4 +1,4 @@
-local x, y, z, direction = ... -- 0 is north, 1 is east, 2 is south, 3 is west
+local x, y, z, x_2, y_2, z_2, direction = ... -- 0 is north, 1 is east, 2 is south, 3 is west
 
 function moveForward()
     while not turtle.forward() do
