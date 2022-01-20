@@ -5,16 +5,16 @@ function moveForward()
         print("Something blocking ahead!")
         turtle.dig()
     end
-    if direction == 0 do
+    if direction == 0 then
         z = z - 1
     end
-    if direction == 1 do
+    if direction == 1 then
         x = x + 1
     end
-    if direction == 2 do
+    if direction == 2 then
         z = z + 1
     end
-    if direction == 3 do
+    if direction == 3 then
         x = x - 1
     end
 end
@@ -37,13 +37,13 @@ end
 
 function turn(dir)
     -- negative means left, positive means right
-    if dir < 0 do
+    if dir < 0 then
         for i = 0, dir, -1 do
             turtle.turnLeft()
         end
     end
 
-    if dir  1 do
+    if dir > 0 then
         for i = 0, dir, 1 do
             turtle.turnRight()
         end
@@ -53,10 +53,10 @@ end
 function turnTowards(dir)
     -- 0 is north, 1 is east, 2 is south, 3 is west
     turns = dir - direction
-    if turns == 3 do
+    if turns == 3 then
         turns = -1
     end
-    if turns == -3 do
+    if turns == -3 then
         turns = 1
     end
     turn(turns)
@@ -69,7 +69,7 @@ function moveTo(x_new, y_new, z_new)
         for i = 0, x_new - x, 1 do
             moveForward()
         end
-    elseif x > x_new do
+    elseif x > x_new then
         turnTowards(3)
         for i = 0, x - x_new, 1 do
             moveForward()
@@ -91,7 +91,7 @@ function moveTo(x_new, y_new, z_new)
         for i = 0, z_new - z, 1 do
             moveForward()
         end
-    elseif z > z_new do
+    elseif z > z_new then
         turnTowards(0)
         for i = 0, z - z_new, 1 do
             moveForward()
