@@ -1,6 +1,6 @@
 local x_2, y_2, z_2 = ...
 local direction = 0
-print("huh")
+
 function moveForward()
     while not turtle.forward() do
         print("Something blocking ahead!")
@@ -88,8 +88,9 @@ function moveTo(x_new, y_new, z_new)
     end
 end
 
+print("starting")
 moveTo(tonumber(x_2), tonumber(y_2), tonumber(z_2))
-print("huh")
+
 
 
 
