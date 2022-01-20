@@ -1,21 +1,10 @@
-local x, y, z, x_2, y_2, z_2, direction = ... -- 0 is north, 1 is east, 2 is south, 3 is west
+local x, y, z = ...
+local direction = 0
 
 function moveForward()
     while not turtle.forward() do
         print("Something blocking ahead!")
         turtle.dig()
-    end
-    if direction == 0 then
-        z = z - 1
-    end
-    if direction == 1 then
-        x = x + 1
-    end
-    if direction == 2 then
-        z = z + 1
-    end
-    if direction == 3 then
-        x = x - 1
     end
 end
 
@@ -24,7 +13,6 @@ function moveDown()
         print("Something blocking below!")
         turtle.digDown()
     end
-    y = y - 1
 end
 
 function moveUp()
@@ -32,7 +20,6 @@ function moveUp()
         print("Something blocking above!")
         turtle.digUp()
     end
-    y = y + 1
 end
 
 function turn(dir)
@@ -59,6 +46,7 @@ function turnTowards(dir)
     if turns == -3 then
         turns = 1
     end
+
     turn(turns)
     direction = dir
 end
@@ -100,7 +88,7 @@ function moveTo(x_new, y_new, z_new)
 end
 
 
-moveTo(x_2, y_2, z_2)
+moveTo(x, y, z)
 
 
 
