@@ -55,22 +55,23 @@ function moveTo(x_new, y_new, z_new)
 
     if 0 < x_new then
         turnTowards(1)
-        for i = 0, x_new, 1 do
+        for i = 0, x_new - 1, 1 do
             moveForward()
         end
     elseif 0 > x_new then
         turnTowards(3)
-        for i = 0, 0 - x_new, 1 do
+        for i = 0, 0 - x_new - 1, 1 do
             moveForward()
         end
     end
    
     if 0 < y_new then
-        for i = 0, y_new, 1 do
+        for i = 0, y_new - 1, 1 do
             moveUp()
         end
     elseif 0 > y_new then
-        for i = 0, 0 - y_new, 1 do
+        for i = 0, 0 - y_new - 1, 1 do
+            print(y_new)
             print("moving down")
             moveDown()
         end
@@ -78,12 +79,12 @@ function moveTo(x_new, y_new, z_new)
 
     if 0 < z_new then
         turnTowards(2)
-        for i = 0, z_new, 1 do
+        for i = 0, z_new - 1, 1 do
             moveForward()
         end
     elseif 0 > z_new then
         turnTowards(0)
-        for i = 0, 0 - z_new, 1 do
+        for i = 0, 0 - z_new - 1, 1 do
             moveForward()
         end
     end
