@@ -1,9 +1,13 @@
-local x = 0
-while true do
-    turtle.dig()
-    turtle.digUp()
-    turtle.digDown()
-    turtle.forward()
-    print(x)
-    x = x + 1
+function run()
+    local x = 0
+    while true do
+        turtle.dig()
+        turtle.digUp()
+        turtle.digDown()
+        turtle.forward()
+        print(x)
+        x = x + 1
+    end
 end
+
+run()
