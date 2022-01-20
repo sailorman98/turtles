@@ -100,7 +100,7 @@ function moveTo(x_new, y_new, z_new)
 end
 
 
-
+moveTo(x_2, y_2, z_2)
 
 
 
