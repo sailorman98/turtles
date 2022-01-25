@@ -16,7 +16,7 @@ function moveForward()
         turtle.dig()
     end
 
-    if front.name == "minecraft:bedrock" do
+    if front.name == "minecraft:bedrock" then
        moveHome()
     end
 
@@ -43,7 +43,7 @@ function moveDown()
         print("Something blocking below!")
         turtle.digDown()
     end
-    if bottom.name == "minecraft:bedrock" do
+    if bottom.name == "minecraft:bedrock" then
        moveHome()
     end
 
