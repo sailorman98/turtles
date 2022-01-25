@@ -9,7 +9,7 @@ local leftTurns = 0
 local fuelUsed = 0
 
 function moveForward()
-    front = turtle.inspect()
+    success, front = turtle.inspect()
 
     while not turtle.forward() and front.name ~= "minecraft:bedrock" do
         print("Something blocking ahead!")
@@ -38,7 +38,7 @@ function moveForward()
 end
 
 function moveDown()
-    bottom = turtle.inspectDown()
+    success, bottom = turtle.inspectDown()
     while not turtle.down() and bottom.name ~= "minecraft:bedrock" do
         print("Something blocking below!")
         turtle.digDown()
