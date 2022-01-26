@@ -1,10 +1,10 @@
--- local straight, up, right = ...
--- local x = 0
--- local y = 0
--- local z = 0
+local straight, up, right = ...
+local x = 0
+local y = 0
+local z = 0
 
--- local rightTurns = 0
--- local leftTurns = 0
+local rightTurns = 0
+local leftTurns = 0
 
 -- local fuelUsed = 0
 
@@ -130,11 +130,11 @@
 --     dropItems()
 -- end
 
--- function turnTowardsHome()
---     while math.abs(tonumber(rightTurns) - tonumber(leftTurns)) % 4 ~= 2 do
---         turnRight()
---     end
--- end
+function turnTowardsHome()
+    while math.abs(tonumber(rightTurns) - tonumber(leftTurns)) % 4 ~= 2 do
+        turnRight()
+    end
+end
     
 function turnAwayFromHome()
     while math.abs(tonumber(rightTurns) - tonumber(leftTurns)) % 4 ~= 0 do
@@ -161,7 +161,7 @@ end
 
 -- move()
 
-turnAwayFromHome()
+turnTowardsHome()
 
 
 
