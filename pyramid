@@ -1,0 +1,26 @@
+size = ...
+os.loadAPI("move")
+
+function digLine(length)
+	for i = 1, length, 1 do
+		move.moveForward()
+		move.digDown()
+	end
+	move.turnRight()
+end
+
+function main()
+	for i = size, 1, -1 do
+		digLine(i)
+		digLine(i)
+		digLine(i)
+		digLine(i - 1)
+		move.moveForward()
+		move.moveDown()
+	end
+end
+
+
+
+
+
