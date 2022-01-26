@@ -110,10 +110,17 @@ function moveHome()
     fuelUsed = math.abs(x) + math.abs(y) + math.abs(z)
     turnTowardsHome()
     print("X: "..x.." Y: "..y.." Z: "..z)
-    for i = 1, y, 1 do
-        moveDown()
-    end
 
+    if y < 0 then
+        for i = 1, 0-y, 1 do
+            moveDown()
+        end 
+    else
+        for i = 1, y, 1 do
+            moveUp()
+        end
+    end
+    
     for i = 1, x, 1 do
         moveForward()
     end
