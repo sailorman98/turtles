@@ -1,25 +1,25 @@
 size = ...
 os.loadAPI("move")
 
-function digSquare(length)
+function digSquare(side_length)
 	move.moveForward()
 	move.moveDown()
 	move.turnRight()
 
-	digLine(math.floor(length, 2))
+	digLine(math.floor(side_length / 2))
 	move.turnRight()
 
 	for i = 1, 3, 1 do
-		digLine(length - 1)
+		digLine(side_length - 1)
 		move.turnRight()
 	end
 
-	digLine(math.floor(length, 2))
+	digLine(math.floor(side_length / 2))
 	move.turnLeft()
 end
 
 function digLine(length)
-	for i = 1, length, 1 do
+	for j = 1, length, 1 do
 		move.moveForward()
 		turtle.digUp()
 		turtle.digDown()
@@ -27,8 +27,8 @@ function digLine(length)
 end
 
 function main()
-	for i = 1, tonumber(size), 1 do
-		digSquare(i * 2 + 1)
+	for k = 1, tonumber(size), 1 do
+		digSquare(k * 2 + 1)
 	end
 	move.moveHome()
 end
