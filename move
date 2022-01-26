@@ -86,7 +86,7 @@ function move()
         end
     end
 
-    turnTowardsHome()
+    moveHome()
 end
 
 function turnLeft()
