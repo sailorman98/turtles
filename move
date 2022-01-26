@@ -61,32 +61,32 @@ local leftTurns = 0
 
 -- end
 
--- function move()
---     straight = tonumber(straight)
---     up = tonumber(up)
---     right = tonumber(right)
+function move()
+    straight = tonumber(straight)
+    up = tonumber(up)
+    right = tonumber(right)
 
---     for i = 1, straight, 1 do
---         moveForward()
---     end
+    for i = 1, straight, 1 do
+        moveForward()
+    end
 
---     turtle.turnRight()
---     for i = 1, right, 1 do
---         moveForward()
---     end
+    turtle.turnRight()
+    for i = 1, right, 1 do
+        moveForward()
+    end
 
---     if up > 0 then
---         for i = 1, up, 1 do
---             moveUp()
---         end
---     else
---         print("WE SHOULD BE MOVING DOWN")
---         for i = 1, 0 - up, 1 do
---             moveDown()
---         end
---     end
---     moveHome()
--- end
+    if up > 0 then
+        for i = 1, up, 1 do
+            moveUp()
+        end
+    else
+        print("WE SHOULD BE MOVING DOWN")
+        for i = 1, 0 - up, 1 do
+            moveDown()
+        end
+    end
+    turnTowardsHome()
+\end
 
 function turnLeft()
     print("Turning left")
@@ -104,31 +104,31 @@ function turnRight()
     print("Direction: ", direction)
 end
 
--- function moveHome()
---     print("Moving home")
---     fuelUsed = math.abs(x) + math.abs(y) + math.abs(z)
---     turnTowardsHome()
---     print("X: "..x.." Y: "..y.." Z: "..z)
---     for i = 1, y, 1 do
---         moveDown()
---     end
+function moveHome()
+    print("Moving home")
+    fuelUsed = math.abs(x) + math.abs(y) + math.abs(z)
+    turnTowardsHome()
+    print("X: "..x.." Y: "..y.." Z: "..z)
+    for i = 1, y, 1 do
+        moveDown()
+    end
 
---     for i = 1, x, 1 do
---         moveForward()
---     end
+    for i = 1, x, 1 do
+        moveForward()
+    end
 
---     if z < 0 then
---         turnLeft()
---     elseif z > 0 then
---         turnRight()
---     end
+    if z < 0 then
+        turnLeft()
+    elseif z > 0 then
+        turnRight()
+    end
 
---     for i = 1, math.abs(z), 1 do
---         moveForward()
---     end
---     turnAwayFromHome()
---     dropItems()
--- end
+    for i = 1, math.abs(z), 1 do
+        moveForward()
+    end
+    turnAwayFromHome()
+    dropItems()
+end
 
 function turnTowardsHome()
     while math.abs(tonumber(rightTurns) - tonumber(leftTurns)) % 4 ~= 2 do
