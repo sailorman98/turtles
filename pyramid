@@ -5,6 +5,7 @@ function digLine(length)
 	for i = 1, length, 1 do
 		move.moveForward()
 		turtle.digDown()
+		turtle.digUp()
 	end
 	move.turnRight()
 end
@@ -18,6 +19,7 @@ function main()
 		move.moveForward()
 		move.moveDown()
 	end
+	move.moveHome()
 end
 
 main()
