@@ -167,7 +167,9 @@ end
 --     end
 -- end
 
-move()
+if straight ~= nil then
+    move()
+end
 
 
 
