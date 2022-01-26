@@ -109,7 +109,7 @@ function moveHome()
     fuelUsed = math.abs(x) + math.abs(y) + math.abs(z)
     turnTowardsHome()
     for i = 1, y, 1 do
-        moveUp()
+        moveDown()
     end
 
     for i = 1, x, 1 do
