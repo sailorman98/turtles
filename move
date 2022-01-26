@@ -46,7 +46,6 @@ function moveDown()
     if bottom.name == "minecraft:bedrock" then
        moveHome()
     end
-
     y = y + 1
     print("Y: "..y)
 end
@@ -108,6 +107,7 @@ function moveHome()
     print("Moving home")
     fuelUsed = math.abs(x) + math.abs(y) + math.abs(z)
     turnTowardsHome()
+    print("X: "..x.." Y: "..y.." Z: "..z)
     for i = 1, y, 1 do
         moveDown()
     end
