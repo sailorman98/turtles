@@ -24,16 +24,16 @@ function moveForward()
     
     if direction == 0 then
         x = x + 1
-        print(x)
+        print("X: "..x)
     elseif direction == 2 then
         x = x - 1
-        print(x)
+        print("X: "..x)
     elseif (direction == 1 and leftTurns > rightTurns) or (direction == 3 and rightTurns > leftTurns) then
         z = z - 1
-        print(z)
+        print("Z: "..z)
     else
         z = z + 1
-        print(z)
+        print("Z: "..z)
     end
 end
 
@@ -48,7 +48,7 @@ function moveDown()
     end
 
     y = y + 1
-    print(y)
+    print("Y: "..y)
 end
 
 function moveUp()
@@ -58,7 +58,8 @@ function moveUp()
     end
 
     y = y - 1
-    print(y)
+    print("Y: "..y)
+
 end
 
 function move()
