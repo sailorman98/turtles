@@ -1,0 +1,82 @@
+local direction, size, depth = ...
+local x = 0
+local y = 0
+local z = 0
+os.loadAPI(move)
+
+function mine()
+	chestCheck()
+	vibeCheck()
+
+function chestCheck()
+	-- make sure there's a chest in front of us
+	goodToGo = false
+	while ~goodToGo do
+		chest = turtle.inspectDown()
+		if chest.name == "minecraft:chest" then
+			goodToGo = true
+		else
+			print("No chest!")
+			sleep(0.5)
+		end
+	end
+end
+
+function vibeCheck()
+	-- find where to dig
+	turtle.turnRight() -- turn around from chest
+	turtle.turnRight()
+
+	while turtle.inspect() == nil do
+		turtle.forward()
+		x = x + 1
+	end
+end
+
+function digRow()
+	-- digs trench in current direction, digs down and turns around at end
+	for i in 1, tonumber(size), 1 do
+		move.moveForward()
+		turtle.digUp()
+		turtle.digDown()
+	end
+	digDownAndTurn()
+	for i in 1, tonumber(size), 1 do
+		move.moveForward()
+		turtle.digUp()
+		turtle.digDown()
+	end
+end
+
+function digDownAndTurn()
+	move.moveDown()
+	move.moveDown()
+	move.moveDown()
+	turtle.turnRight()
+	turtle.turnRight()
+end
+
+function digTrench()
+	for i in 1, math.floor(tonumber(depth) / 6), 1 do
+		digRow()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function checkFuel()
+
+
+
+
+shell.run("move", 20, 3, )
