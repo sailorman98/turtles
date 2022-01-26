@@ -80,6 +80,7 @@ function move()
             moveUp()
         end
     else
+        print("WE SHOULD BE MOVING DOWN")
         for i = 1, 0 - up, 1 do
             moveDown()
         end
