@@ -99,6 +99,7 @@ function turnRight()
 end
 
 function moveHome()
+    print("Moving home")
     fuelUsed = math.abs(x) + math.abs(y) + math.abs(z)
     turnTowardsHome()
     for i = 1, y, 1 do
