@@ -89,13 +89,19 @@ function move()
 end
 
 function turnLeft()
+    print("Turning left")
     turtle.turnLeft()
     leftTurns = leftTurns + 1
+    direction = math.abs(tonumber(rightTurns) - tonumber(leftTurns)) % 4
+    print("Direction: ", direction)
 end
 
 function turnRight()
     turtle.turnRight()
     rightTurns = rightTurns + 1
+    print("Turning right")
+    direction = math.abs(tonumber(rightTurns) - tonumber(leftTurns)) % 4
+    print("Direction: ", direction)
 end
 
 function moveHome()
