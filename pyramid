@@ -27,7 +27,7 @@ function digLine(length)
 end
 
 function main()
-	for i = 1, size, 1 do
+	for i = 1, tonumber(size), 1 do
 		digSquare(i * 2 + 1)
 	end
 	move.moveHome()
