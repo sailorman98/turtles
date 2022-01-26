@@ -70,7 +70,7 @@ function move()
         moveForward()
     end
 
-    turtle.turnRight()
+    turnRight()
     for i = 1, right, 1 do
         moveForward()
     end
