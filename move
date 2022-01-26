@@ -85,8 +85,9 @@ function move()
             moveDown()
         end
     end
+
     turnTowardsHome()
-\end
+end
 
 function turnLeft()
     print("Turning left")
