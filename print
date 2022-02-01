@@ -1,2 +1,1 @@
-local arg1 = ...
-print(arg1)
+print("hi")
