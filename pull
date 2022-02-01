@@ -1,5 +1,7 @@
 local arg1 = ...
- local sExample = http.get("https://raw.githubusercontent.com/sailorman98/turtles/main/"..arg1) --Get contents of page
- file = fs.open(arg1, "w")
- file.write(sExample.readAll())
- file.close()
+local sExample = http.get("https://raw.github.com/sailorman98/turtles/main/"..arg1) --Get contents of page
+shell.run("delete "..arg1)
+file = fs.open(arg1, "w")
+file.write(sExample.readAll())
+file.close()
+

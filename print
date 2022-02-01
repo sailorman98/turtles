@@ -1,2 +1,2 @@
-slotData = turtle.getItemDetail(1)
-print(slotData.name)
+local arg1 = ...
+print(arg1)
