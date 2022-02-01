@@ -1,7 +1,7 @@
-local files = http.get("https://raw.github.com/sailorman98/turtles/main/files").readAll()
+local filesList = http.get("https://raw.githubusercontent.com/sailorman98/turtles/main/files")
 shell.run("delete files")
 file = fs.open("files", "w")
-file.write(files.readAll())
+file.write(filesList.readAll())
 file.close()
 
 os.loadAPI("files")
