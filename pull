@@ -6,7 +6,7 @@ file.close()
 
 os.loadAPI("files")
 for i, v in ipairs(files.files) do	
-	local fileText = http.get("https://raw.github.com/sailorman98/turtles/main/"..v) --Get contents of page
+	local fileText = http.get("https://raw.githubusercontent.com/sailorman98/turtles/main/"..v) --Get contents of page
 	shell.run("delete "..v)
 	file = fs.open(v, "w")
 	file.write(fileText.readAll())
