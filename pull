@@ -1,6 +1,5 @@
 local arg1 = ...
-local sExample = http.get("http://ix.io/"..arg1) --Get contents of page
-file = fs.open(arg1, "w")
-file.write(sExample.readAll())
-print(arg1.." pulled")
-file.close()
+ local sExample = http.get("https://raw.githubusercontent.com/sailorman98/turtles/main/"..arg1) --Get contents of page
+ file = fs.open(arg1, "w")
+ file.write(sExample.readAll())
+ file.close()
