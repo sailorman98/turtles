@@ -150,28 +150,26 @@ function turnAwayFromHome()
     end
 end
 
--- function refuel()
---     for slot = 1,16,1
---     do
---         turtle.select(slot)
---         turtle.refuel()
---     end
--- end
+function refuel()
+    for slot = 1,16,1
+    do
+        turtle.select(slot)
+        turtle.refuel()
+    end
+end
 
--- function dropItems()
---     print("Dropping items")
---     for slot = 1,16,1
---     do
---         turtle.select(slot)
---         turtle.dropDown()
---     end
--- end
+function checkFuel()
+    
+
+function dropItems()
+    print("Dropping items")
+    for slot = 1,16,1
+    do
+        turtle.select(slot)
+        turtle.dropDown()
+    end
+end
 
 if straight ~= nil then
     move()
 end
-
-
-
-
-

@@ -1,0 +1,12 @@
+git add *
+git commit -m "push"
+git push
+
+COMPATH=/Users/rjpimentel/Library/Application\ Support/minecraft/saves/Computers/computer
+
+for dir in "$COMPATH"/*/
+do
+    rm -Rf "$dir"$1
+    cp $1 "$dir"
+done
+cd ~/turtles
